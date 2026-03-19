@@ -92,7 +92,7 @@ const menuData = {
           description: { es: 'Con patatas asadas y pimientos del padrón', en: 'With roasted potatoes and Padrón peppers', ca: 'Amb patates rostides i pebrots del padrón' },
           price: 18.50,
           allergens: [],
-          image: 'https://images.unsplash.com/photo-1544025162-d76538cdfe1f?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1555939594-58d7cb561ad1?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Bacalao al pil-pil', en: 'Cod in pil-pil sauce', ca: 'Bacallà al pil-pil' },
@@ -108,7 +108,7 @@ const menuData = {
           price: 19.50,
           allergens: ['marisco', 'pescado'],
           badge: 'new',
-          image: 'https://images.unsplash.com/photo-1534080564697-68069b5bdde4?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1563379091339-03b21ab4a4f8?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Pollo asado al horno', en: 'Oven-roasted chicken', ca: 'Pollastre rostit al forn' },
@@ -186,7 +186,7 @@ const menuData = {
           description: { es: 'Brut Nature, D.O. Cava', en: 'Brut Nature, D.O. Cava', ca: 'Brut Nature, D.O. Cava' },
           price: 3.50,
           allergens: ['sulfitos'],
-          image: 'https://images.unsplash.com/photo-1543071293-3bded5cf5d8c?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1560508180-03f285f67ded?w=200&h=200&fit=crop&auto=format&q=80'
         }
       ]
     },
@@ -200,14 +200,14 @@ const menuData = {
           description: null,
           price: 1.80,
           allergens: ['gluten'],
-          image: 'https://images.unsplash.com/photo-1608270586351-e57b02d6e1e9?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1530519729491-aea5b51d1ee1?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Jarra', en: 'Pint', ca: 'Gerra' },
           description: null,
           price: 3.00,
           allergens: ['gluten'],
-          image: 'https://images.unsplash.com/photo-1608270586351-e57b02d6e1e9?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1530519729491-aea5b51d1ee1?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Botellín', en: 'Bottle beer', ca: 'Botellí' },
@@ -235,21 +235,21 @@ const menuData = {
           description: { es: 'Con o sin gas', en: 'Still or sparkling', ca: 'Amb o sense gas' },
           price: 1.50,
           allergens: [],
-          image: 'https://images.unsplash.com/photo-1548839140-93f0c2cddab2?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1547592180-85f173990554?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Refresco', en: 'Soft drink', ca: 'Refresc' },
           description: { es: 'Coca-Cola, Fanta, Sprite, agua con gas', en: 'Coca-Cola, Fanta, Sprite, sparkling water', ca: 'Coca-Cola, Fanta, Sprite, aigua amb gas' },
           price: 2.50,
           allergens: [],
-          image: 'https://images.unsplash.com/photo-1543158266-0066d0e8f67c?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1514362545857-3bc16c4c7d1b?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Zumo natural', en: 'Fresh juice', ca: 'Suc natural' },
           description: { es: 'Naranja, limón o piña', en: 'Orange, lemon or pineapple', ca: 'Taronja, llimona o pinya' },
           price: 3.00,
           allergens: [],
-          image: 'https://images.unsplash.com/photo-1534353473418-4cfa0a56b13f?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1600271886742-f049cd451bba?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Café solo', en: 'Espresso', ca: 'Cafè sol' },
