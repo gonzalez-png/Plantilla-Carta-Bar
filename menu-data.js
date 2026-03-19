@@ -48,7 +48,7 @@ const menuData = {
           description: { es: 'Jamón, lomo y chorizo ibérico con pan', en: 'Iberian ham, loin and chorizo with bread', ca: 'Pernil, llom i xoriç ibèric amb pa' },
           price: 14.50,
           allergens: ['gluten'],
-          image: 'https://images.unsplash.com/photo-1559561853-51b10f4c2640?w=200&h=200&fit=crop&auto=format&q=80'
+          image: 'https://images.unsplash.com/photo-1529692236671-f1f6cf9683ba?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Patatas bravas', en: 'Spicy potatoes', ca: 'Patates braves' },
@@ -155,33 +155,38 @@ const menuData = {
       items: [
         {
           name: { es: 'Copa vino tinto', en: 'Glass of red wine', ca: 'Copa de vi negre' },
-          description: { es: 'Selección de la casa', en: "House selection", ca: 'Selecció de la casa' },
+          description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
           price: 2.50,
-          allergens: ['sulfitos']
+          allergens: ['sulfitos'],
+          image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Botella vino tinto', en: 'Bottle of red wine', ca: 'Ampolla de vi negre' },
           description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
           price: 9.50,
-          allergens: ['sulfitos']
+          allergens: ['sulfitos'],
+          image: 'https://images.unsplash.com/photo-1510812431401-41d2bd2722f3?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Copa vino blanco', en: 'Glass of white wine', ca: 'Copa de vi blanc' },
           description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
           price: 2.50,
-          allergens: ['sulfitos']
+          allergens: ['sulfitos'],
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Botella vino blanco', en: 'Bottle of white wine', ca: 'Ampolla de vi blanc' },
           description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
           price: 9.50,
-          allergens: ['sulfitos']
+          allergens: ['sulfitos'],
+          image: 'https://images.unsplash.com/photo-1558618666-fcd25c85cd64?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Cava (copa)', en: 'Cava (glass)', ca: 'Cava (copa)' },
           description: { es: 'Brut Nature, D.O. Cava', en: 'Brut Nature, D.O. Cava', ca: 'Brut Nature, D.O. Cava' },
           price: 3.50,
-          allergens: ['sulfitos']
+          allergens: ['sulfitos'],
+          image: 'https://images.unsplash.com/photo-1543071293-3bded5cf5d8c?w=200&h=200&fit=crop&auto=format&q=80'
         }
       ]
     },
@@ -194,25 +199,29 @@ const menuData = {
           name: { es: 'Caña', en: 'Small draft beer', ca: 'Caneta' },
           description: null,
           price: 1.80,
-          allergens: ['gluten']
+          allergens: ['gluten'],
+          image: 'https://images.unsplash.com/photo-1608270586351-e57b02d6e1e9?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Jarra', en: 'Pint', ca: 'Gerra' },
           description: null,
           price: 3.00,
-          allergens: ['gluten']
+          allergens: ['gluten'],
+          image: 'https://images.unsplash.com/photo-1608270586351-e57b02d6e1e9?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Botellín', en: 'Bottle beer', ca: 'Botellí' },
           description: { es: 'Estrella Damm, Moritz, sin gluten', en: 'Estrella Damm, Moritz, gluten-free', ca: 'Estrella Damm, Moritz, sense gluten' },
           price: 2.50,
-          allergens: ['gluten']
+          allergens: ['gluten'],
+          image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Sin alcohol', en: 'Non-alcoholic beer', ca: 'Sense alcohol' },
           description: null,
           price: 2.50,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1558642452-9d2a7deb7f62?w=200&h=200&fit=crop&auto=format&q=80'
         }
       ]
     },
@@ -225,43 +234,50 @@ const menuData = {
           name: { es: 'Agua mineral', en: 'Mineral water', ca: 'Aigua mineral' },
           description: { es: 'Con o sin gas', en: 'Still or sparkling', ca: 'Amb o sense gas' },
           price: 1.50,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1548839140-93f0c2cddab2?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Refresco', en: 'Soft drink', ca: 'Refresc' },
           description: { es: 'Coca-Cola, Fanta, Sprite, agua con gas', en: 'Coca-Cola, Fanta, Sprite, sparkling water', ca: 'Coca-Cola, Fanta, Sprite, aigua amb gas' },
           price: 2.50,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1543158266-0066d0e8f67c?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Zumo natural', en: 'Fresh juice', ca: 'Suc natural' },
           description: { es: 'Naranja, limón o piña', en: 'Orange, lemon or pineapple', ca: 'Taronja, llimona o pinya' },
           price: 3.00,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1534353473418-4cfa0a56b13f?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Café solo', en: 'Espresso', ca: 'Cafè sol' },
           description: null,
           price: 1.50,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1510591509098-f4fdc6d0ff04?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Café con leche', en: 'Coffee with milk', ca: 'Cafè amb llet' },
           description: null,
           price: 1.80,
-          allergens: ['lacteo']
+          allergens: ['lacteo'],
+          image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Cortado', en: 'Cortado', ca: 'Tallat' },
           description: null,
           price: 1.60,
-          allergens: ['lacteo']
+          allergens: ['lacteo'],
+          image: 'https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?w=200&h=200&fit=crop&auto=format&q=80'
         },
         {
           name: { es: 'Infusiones', en: 'Herbal teas', ca: 'Infusions' },
           description: { es: 'Menta, manzanilla, tila, rooibos', en: 'Mint, chamomile, linden, rooibos', ca: 'Menta, camamilla, til·la, rooibos' },
           price: 2.00,
-          allergens: []
+          allergens: [],
+          image: 'https://images.unsplash.com/photo-1544787219-7f47ccb76574?w=200&h=200&fit=crop&auto=format&q=80'
         }
       ]
     }
