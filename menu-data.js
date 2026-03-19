@@ -1,0 +1,256 @@
+const menuData = {
+
+  config: {
+    languages: ['es', 'en', 'ca'],
+    footerText: {
+      es: 'Carta digital · Todos los precios incluyen IVA',
+      en: 'Digital menu · All prices include VAT',
+      ca: 'Carta digital · Tots els preus inclouen IVA'
+    }
+  },
+
+  restaurant: {
+    name: {
+      es: 'El Rincón de la Abuela',
+      en: "Grandma's Corner",
+      ca: "El Racó de l'Àvia"
+    },
+    tagline: {
+      es: 'Cocina tradicional desde 1985',
+      en: 'Traditional cuisine since 1985',
+      ca: 'Cuina tradicional des de 1985'
+    }
+  },
+
+  categories: [
+    {
+      id: 'entrantes',
+      icon: '🥗',
+      name: { es: 'Entrantes', en: 'Starters', ca: 'Entrants' },
+      items: [
+        {
+          name: { es: 'Croquetas caseras (6 uds)', en: 'Homemade croquettes (6 pcs)', ca: 'Croquetes casolanes (6 u)' },
+          description: { es: 'Con jamón ibérico y bechamel artesana', en: 'With Iberian ham and artisan béchamel', ca: 'Amb pernil ibèric i beixamel artesana' },
+          price: 7.50,
+          allergens: ['gluten', 'lacteo', 'huevo'],
+          badge: 'popular'
+        },
+        {
+          name: { es: 'Pan con tomate', en: 'Bread with tomato', ca: 'Pa amb tomàquet' },
+          description: { es: 'Pan de cristal con tomate natural y aceite virgen extra', en: 'Crystal bread with fresh tomato and extra virgin olive oil', ca: "Pa de vidre amb tomàquet natural i oli d'oliva verge extra" },
+          price: 3.50,
+          allergens: ['gluten']
+        },
+        {
+          name: { es: 'Tabla de ibéricos', en: 'Iberian cold cuts board', ca: "Taula d'ibèrics" },
+          description: { es: 'Jamón, lomo y chorizo ibérico con pan', en: 'Iberian ham, loin and chorizo with bread', ca: 'Pernil, llom i xoriç ibèric amb pa' },
+          price: 14.50,
+          allergens: ['gluten']
+        },
+        {
+          name: { es: 'Patatas bravas', en: 'Spicy potatoes', ca: 'Patates braves' },
+          description: { es: 'Con salsa brava casera y alioli', en: 'With homemade spicy sauce and alioli', ca: 'Amb salsa brava casolana i allioli' },
+          price: 5.50,
+          allergens: ['huevo'],
+          badge: 'popular'
+        }
+      ]
+    },
+    {
+      id: 'ensaladas',
+      icon: '🥙',
+      name: { es: 'Ensaladas', en: 'Salads', ca: 'Amanides' },
+      items: [
+        {
+          name: { es: 'Ensalada mixta', en: 'Mixed salad', ca: 'Amanida mixta' },
+          description: { es: 'Lechuga, tomate, cebolla, aceitunas, atún y huevo', en: 'Lettuce, tomato, onion, olives, tuna and egg', ca: 'Enciam, tomàquet, ceba, olives, tonyina i ou' },
+          price: 8.50,
+          allergens: ['huevo', 'pescado']
+        },
+        {
+          name: { es: 'Ensalada César', en: 'Caesar salad', ca: 'Amanida Cèsar' },
+          description: { es: 'Romana, pollo a la plancha, parmesano y crutones', en: 'Romaine, grilled chicken, parmesan and croutons', ca: 'Romana, pollastre a la planxa, parmesà i crostons' },
+          price: 10.50,
+          allergens: ['gluten', 'lacteo', 'pescado', 'huevo'],
+          badge: 'new'
+        }
+      ]
+    },
+    {
+      id: 'principales',
+      icon: '🍽️',
+      name: { es: 'Principales', en: 'Main Courses', ca: 'Principals' },
+      items: [
+        {
+          name: { es: 'Secreto ibérico a la brasa', en: 'Grilled Iberian pork', ca: 'Secret ibèric a la brasa' },
+          description: { es: 'Con patatas asadas y pimientos del padrón', en: 'With roasted potatoes and Padrón peppers', ca: 'Amb patates rostides i pebrots del padrón' },
+          price: 18.50,
+          allergens: []
+        },
+        {
+          name: { es: 'Bacalao al pil-pil', en: 'Cod in pil-pil sauce', ca: 'Bacallà al pil-pil' },
+          description: { es: 'Con su salsa tradicional vasca y pimientos asados', en: 'With traditional Basque sauce and roasted peppers', ca: 'Amb la seva salsa tradicional basca i pebrots rostits' },
+          price: 16.50,
+          allergens: ['pescado'],
+          badge: 'popular'
+        },
+        {
+          name: { es: 'Arròs del senyoret', en: 'Peeled seafood rice', ca: 'Arròs del senyoret' },
+          description: { es: 'Arroz con mariscos pelados, para no mancharse', en: 'Rice with peeled seafood, perfect to enjoy without mess', ca: 'Arròs amb marisc pelat, per no embrutar-se' },
+          price: 19.50,
+          allergens: ['marisco', 'pescado'],
+          badge: 'new'
+        },
+        {
+          name: { es: 'Pollo asado al horno', en: 'Oven-roasted chicken', ca: 'Pollastre rostit al forn' },
+          description: { es: 'Con patatas panadera y ensalada de temporada', en: "With baker's potatoes and seasonal salad", ca: 'Amb patates panadera i amanida de temporada' },
+          price: 13.50,
+          allergens: []
+        }
+      ]
+    },
+    {
+      id: 'postres',
+      icon: '🍮',
+      name: { es: 'Postres', en: 'Desserts', ca: 'Postres' },
+      items: [
+        {
+          name: { es: 'Crema catalana', en: 'Catalan cream', ca: 'Crema catalana' },
+          description: { es: 'Receta tradicional con azúcar quemado', en: 'Traditional recipe with burnt sugar crust', ca: 'Recepta tradicional amb sucre cremat' },
+          price: 5.00,
+          allergens: ['lacteo', 'huevo'],
+          badge: 'popular'
+        },
+        {
+          name: { es: 'Tarta de queso', en: 'Cheesecake', ca: 'Pastís de formatge' },
+          description: { es: 'Con coulis de frutos rojos', en: 'With red berry coulis', ca: 'Amb coulis de fruits vermells' },
+          price: 5.50,
+          allergens: ['lacteo', 'huevo', 'gluten']
+        },
+        {
+          name: { es: 'Tiramisú', en: 'Tiramisu', ca: 'Tiramisú' },
+          description: { es: 'Clásico italiano con mascarpone y café', en: 'Italian classic with mascarpone and coffee', ca: 'Clàssic italià amb mascarpone i cafè' },
+          price: 5.50,
+          allergens: ['lacteo', 'huevo', 'gluten']
+        }
+      ]
+    },
+    {
+      id: 'vinos',
+      icon: '🍷',
+      name: { es: 'Vinos', en: 'Wines', ca: 'Vins' },
+      items: [
+        {
+          name: { es: 'Copa vino tinto', en: 'Glass of red wine', ca: 'Copa de vi negre' },
+          description: { es: 'Selección de la casa', en: "House selection", ca: 'Selecció de la casa' },
+          price: 2.50,
+          allergens: ['sulfitos']
+        },
+        {
+          name: { es: 'Botella vino tinto', en: 'Bottle of red wine', ca: 'Ampolla de vi negre' },
+          description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
+          price: 9.50,
+          allergens: ['sulfitos']
+        },
+        {
+          name: { es: 'Copa vino blanco', en: 'Glass of white wine', ca: 'Copa de vi blanc' },
+          description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
+          price: 2.50,
+          allergens: ['sulfitos']
+        },
+        {
+          name: { es: 'Botella vino blanco', en: 'Bottle of white wine', ca: 'Ampolla de vi blanc' },
+          description: { es: 'Selección de la casa', en: 'House selection', ca: 'Selecció de la casa' },
+          price: 9.50,
+          allergens: ['sulfitos']
+        },
+        {
+          name: { es: 'Cava (copa)', en: 'Cava (glass)', ca: 'Cava (copa)' },
+          description: { es: 'Brut Nature, D.O. Cava', en: 'Brut Nature, D.O. Cava', ca: 'Brut Nature, D.O. Cava' },
+          price: 3.50,
+          allergens: ['sulfitos']
+        }
+      ]
+    },
+    {
+      id: 'cervezas',
+      icon: '🍺',
+      name: { es: 'Cervezas', en: 'Beers', ca: 'Cerveses' },
+      items: [
+        {
+          name: { es: 'Caña', en: 'Small draft beer', ca: 'Caneta' },
+          description: null,
+          price: 1.80,
+          allergens: ['gluten']
+        },
+        {
+          name: { es: 'Jarra', en: 'Pint', ca: 'Gerra' },
+          description: null,
+          price: 3.00,
+          allergens: ['gluten']
+        },
+        {
+          name: { es: 'Botellín', en: 'Bottle beer', ca: 'Botellí' },
+          description: { es: 'Estrella Damm, Moritz, sin gluten', en: 'Estrella Damm, Moritz, gluten-free', ca: 'Estrella Damm, Moritz, sense gluten' },
+          price: 2.50,
+          allergens: ['gluten']
+        },
+        {
+          name: { es: 'Sin alcohol', en: 'Non-alcoholic beer', ca: 'Sense alcohol' },
+          description: null,
+          price: 2.50,
+          allergens: []
+        }
+      ]
+    },
+    {
+      id: 'bebidas',
+      icon: '☕',
+      name: { es: 'Bebidas y cafés', en: 'Drinks & coffee', ca: 'Begudes i cafès' },
+      items: [
+        {
+          name: { es: 'Agua mineral', en: 'Mineral water', ca: 'Aigua mineral' },
+          description: { es: 'Con o sin gas', en: 'Still or sparkling', ca: 'Amb o sense gas' },
+          price: 1.50,
+          allergens: []
+        },
+        {
+          name: { es: 'Refresco', en: 'Soft drink', ca: 'Refresc' },
+          description: { es: 'Coca-Cola, Fanta, Sprite, agua con gas', en: 'Coca-Cola, Fanta, Sprite, sparkling water', ca: 'Coca-Cola, Fanta, Sprite, aigua amb gas' },
+          price: 2.50,
+          allergens: []
+        },
+        {
+          name: { es: 'Zumo natural', en: 'Fresh juice', ca: 'Suc natural' },
+          description: { es: 'Naranja, limón o piña', en: 'Orange, lemon or pineapple', ca: 'Taronja, llimona o pinya' },
+          price: 3.00,
+          allergens: []
+        },
+        {
+          name: { es: 'Café solo', en: 'Espresso', ca: 'Cafè sol' },
+          description: null,
+          price: 1.50,
+          allergens: []
+        },
+        {
+          name: { es: 'Café con leche', en: 'Coffee with milk', ca: 'Cafè amb llet' },
+          description: null,
+          price: 1.80,
+          allergens: ['lacteo']
+        },
+        {
+          name: { es: 'Cortado', en: 'Cortado', ca: 'Tallat' },
+          description: null,
+          price: 1.60,
+          allergens: ['lacteo']
+        },
+        {
+          name: { es: 'Infusiones', en: 'Herbal teas', ca: 'Infusions' },
+          description: { es: 'Menta, manzanilla, tila, rooibos', en: 'Mint, chamomile, linden, rooibos', ca: 'Menta, camamilla, til·la, rooibos' },
+          price: 2.00,
+          allergens: []
+        }
+      ]
+    }
+  ]
+};

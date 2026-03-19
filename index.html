@@ -1,0 +1,531 @@
+<!DOCTYPE html>
+<html lang="es" data-theme="minimal">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Carta Digital</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,400;0,600;0,700;1,400&display=swap" rel="stylesheet">
+  <style>
+
+    /* ===== RESET ===== */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    /* ===== VARIABLES ===== */
+    :root {
+      --transition: 0.3s ease;
+      --font-sans: 'Inter', system-ui, sans-serif;
+      --font-serif: 'Playfair Display', Georgia, serif;
+    }
+
+    /* --- TEMA MINIMAL --- */
+    [data-theme="minimal"] {
+      --bg:           #ffffff;
+      --bg-alt:       #f5f5f3;
+      --bg-card:      #ffffff;
+      --text:         #1a1a1a;
+      --text-muted:   #888;
+      --accent:       #1a1a1a;
+      --accent-text:  #ffffff;
+      --border:       #e8e8e8;
+      --price:        #1a1a1a;
+      --shadow:       0 1px 3px rgba(0,0,0,0.07);
+      --tab-active:   #1a1a1a;
+      --tab-txt:      #ffffff;
+      --heading-font: var(--font-sans);
+    }
+
+    /* --- TEMA DARK ELEGANTE --- */
+    [data-theme="dark"] {
+      --bg:           #0d0d0d;
+      --bg-alt:       #181818;
+      --bg-card:      #1c1c1c;
+      --text:         #ede0cc;
+      --text-muted:   #6e6152;
+      --accent:       #c9a06a;
+      --accent-text:  #0d0d0d;
+      --border:       #2a2218;
+      --price:        #c9a06a;
+      --shadow:       0 2px 10px rgba(0,0,0,0.5);
+      --tab-active:   #c9a06a;
+      --tab-txt:      #0d0d0d;
+      --heading-font: var(--font-serif);
+    }
+
+    /* ===== BASE ===== */
+    html { scroll-behavior: smooth; }
+
+    body {
+      font-family: var(--font-sans);
+      background: var(--bg);
+      color: var(--text);
+      min-height: 100vh;
+      transition: background var(--transition), color var(--transition);
+    }
+
+    /* ===== HEADER ===== */
+    .header {
+      position: sticky;
+      top: 0;
+      z-index: 100;
+      background: var(--bg);
+      border-bottom: 1px solid var(--border);
+      padding: 16px 16px 0;
+      transition: background var(--transition), border-color var(--transition);
+    }
+
+    .header-top {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 14px;
+      gap: 12px;
+    }
+
+    .restaurant-name {
+      font-family: var(--heading-font);
+      font-size: 20px;
+      font-weight: 600;
+      color: var(--text);
+      line-height: 1.2;
+      transition: font-family var(--transition), color var(--transition);
+    }
+
+    [data-theme="dark"] .restaurant-name {
+      color: var(--accent);
+      font-style: italic;
+    }
+
+    .restaurant-tagline {
+      font-size: 12px;
+      color: var(--text-muted);
+      font-weight: 300;
+      margin-top: 3px;
+      letter-spacing: 0.01em;
+    }
+
+    .header-controls {
+      display: flex;
+      gap: 6px;
+      align-items: center;
+      flex-shrink: 0;
+    }
+
+    /* Lang switcher */
+    .lang-switcher {
+      display: flex;
+      gap: 2px;
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 3px;
+    }
+
+    .lang-btn {
+      background: none;
+      border: none;
+      padding: 4px 9px;
+      border-radius: 14px;
+      font-size: 11px;
+      font-weight: 600;
+      cursor: pointer;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      letter-spacing: 0.04em;
+      transition: all 0.2s;
+    }
+
+    .lang-btn.active {
+      background: var(--accent);
+      color: var(--accent-text);
+    }
+
+    /* Theme toggle */
+    .theme-btn {
+      background: var(--bg-alt);
+      border: 1px solid var(--border);
+      border-radius: 50%;
+      width: 34px;
+      height: 34px;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 15px;
+      transition: all 0.2s;
+    }
+
+    .theme-btn:hover { opacity: 0.75; }
+
+    /* ===== TABS ===== */
+    .tabs-scroll {
+      overflow-x: auto;
+      scrollbar-width: none;
+      -ms-overflow-style: none;
+      padding-bottom: 12px;
+    }
+    .tabs-scroll::-webkit-scrollbar { display: none; }
+
+    .tabs {
+      display: flex;
+      gap: 6px;
+      min-width: max-content;
+    }
+
+    .tab-btn {
+      background: none;
+      border: 1px solid var(--border);
+      border-radius: 20px;
+      padding: 6px 13px;
+      font-size: 13px;
+      font-weight: 500;
+      cursor: pointer;
+      white-space: nowrap;
+      color: var(--text-muted);
+      font-family: var(--font-sans);
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--tab-active);
+      color: var(--tab-txt);
+      border-color: var(--tab-active);
+    }
+
+    .tab-btn:not(.active):hover {
+      color: var(--text);
+      border-color: var(--text-muted);
+    }
+
+    /* ===== CONTENT ===== */
+    .content {
+      max-width: 680px;
+      margin: 0 auto;
+      padding: 0 16px 60px;
+    }
+
+    /* ===== SECTION ===== */
+    .category {
+      padding-top: 28px;
+    }
+
+    .category-header {
+      display: flex;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 4px;
+      padding-bottom: 10px;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .category-icon { font-size: 18px; }
+
+    .category-title {
+      font-family: var(--heading-font);
+      font-size: 17px;
+      font-weight: 600;
+      color: var(--text);
+      transition: font-family var(--transition), color var(--transition);
+    }
+
+    [data-theme="dark"] .category-title {
+      color: var(--accent);
+    }
+
+    /* ===== ITEM ===== */
+    .item {
+      display: flex;
+      align-items: flex-start;
+      gap: 12px;
+      padding: 13px 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .item:last-child { border-bottom: none; }
+
+    .item-info { flex: 1; min-width: 0; }
+
+    .item-name {
+      font-size: 14px;
+      font-weight: 500;
+      color: var(--text);
+      line-height: 1.35;
+      margin-bottom: 3px;
+    }
+
+    .item-desc {
+      font-size: 12.5px;
+      color: var(--text-muted);
+      line-height: 1.5;
+      font-weight: 300;
+      margin-bottom: 6px;
+    }
+
+    .item-bottom {
+      display: flex;
+      align-items: center;
+      gap: 8px;
+      flex-wrap: wrap;
+      margin-top: 4px;
+    }
+
+    .item-price {
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--price);
+      transition: color var(--transition);
+    }
+
+    [data-theme="dark"] .item-price {
+      font-family: var(--font-serif);
+    }
+
+    .item-allergens {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .allergen-tag {
+      font-size: 10px;
+      padding: 2px 7px;
+      border-radius: 10px;
+      background: var(--bg-alt);
+      color: var(--text-muted);
+      border: 1px solid var(--border);
+      letter-spacing: 0.02em;
+    }
+
+    /* Badges */
+    .badge {
+      font-size: 10px;
+      font-weight: 700;
+      padding: 2px 8px;
+      border-radius: 10px;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
+    }
+
+    .badge-popular { background: #f59e0b; color: #fff; }
+    .badge-new     { background: #22c55e; color: #fff; }
+
+    [data-theme="dark"] .badge-popular { background: #92400e; color: #fde68a; }
+    [data-theme="dark"] .badge-new     { background: #14532d; color: #86efac; }
+
+    /* Item image */
+    .item-img {
+      width: 72px;
+      height: 72px;
+      border-radius: 8px;
+      object-fit: cover;
+      flex-shrink: 0;
+    }
+
+    [data-theme="dark"] .item-img {
+      border-radius: 4px;
+      border: 1px solid var(--border);
+    }
+
+    /* ===== FOOTER ===== */
+    .footer {
+      text-align: center;
+      padding: 20px 16px;
+      font-size: 11px;
+      color: var(--text-muted);
+      border-top: 1px solid var(--border);
+    }
+
+    [data-theme="dark"] .footer {
+      letter-spacing: 0.08em;
+      text-transform: uppercase;
+    }
+
+  </style>
+</head>
+<body>
+
+<header class="header">
+  <div class="header-top">
+    <div>
+      <div class="restaurant-name" id="restaurant-name"></div>
+      <div class="restaurant-tagline" id="restaurant-tagline"></div>
+    </div>
+    <div class="header-controls">
+      <div class="lang-switcher" id="lang-switcher"></div>
+      <button class="theme-btn" id="theme-btn" aria-label="Cambiar tema">🌙</button>
+    </div>
+  </div>
+  <div class="tabs-scroll">
+    <div class="tabs" id="tabs"></div>
+  </div>
+</header>
+
+<main class="content" id="content"></main>
+
+<footer class="footer">
+  <span id="footer-text"></span>
+</footer>
+
+<script src="menu-data.js"></script>
+<script>
+
+  // ===== STATE =====
+  let lang  = 'es';
+  let theme = 'minimal';
+
+  // ===== UTILS =====
+  const $ = id => document.getElementById(id);
+
+  function t(obj) {
+    if (!obj || typeof obj === 'string') return obj || '';
+    return obj[lang] || obj['es'] || '';
+  }
+
+  // ===== THEME =====
+  $('theme-btn').addEventListener('click', () => {
+    theme = theme === 'minimal' ? 'dark' : 'minimal';
+    document.documentElement.setAttribute('data-theme', theme);
+    $('theme-btn').textContent = theme === 'dark' ? '☀️' : '🌙';
+  });
+
+  // ===== LANGUAGE =====
+  function setLang(l) {
+    lang = l;
+    document.documentElement.lang = l;
+    renderAll();
+  }
+
+  // ===== ALLERGEN LABELS =====
+  const ALLERGENS = {
+    gluten:     { es:'Gluten',     en:'Gluten',     ca:'Gluten'       },
+    lacteo:     { es:'Lácteo',     en:'Dairy',      ca:'Làctic'       },
+    huevo:      { es:'Huevo',      en:'Egg',        ca:'Ou'           },
+    pescado:    { es:'Pescado',    en:'Fish',       ca:'Peix'         },
+    marisco:    { es:'Marisco',    en:'Shellfish',  ca:'Marisc'       },
+    cacahuete:  { es:'Cacahuete', en:'Peanut',     ca:'Cacauet'      },
+    frutosSecos:{ es:'F.Secos',   en:'Nuts',       ca:'Fruits Secs'  },
+    soja:       { es:'Soja',       en:'Soy',        ca:'Soia'         },
+    mostaza:    { es:'Mostaza',    en:'Mustard',    ca:'Mostassa'     },
+    apio:       { es:'Apio',       en:'Celery',     ca:'Api'          },
+    sulfitos:   { es:'Sulfitos',   en:'Sulphites',  ca:'Sulfits'      },
+    sesamo:     { es:'Sésamo',     en:'Sesame',     ca:'Sèsam'        },
+  };
+
+  function allergenLabel(key) {
+    return ALLERGENS[key] ? (ALLERGENS[key][lang] || ALLERGENS[key]['es']) : key;
+  }
+
+  // ===== BADGE =====
+  const BADGES = {
+    popular: { es:'Popular', en:'Popular', ca:'Popular' },
+    new:     { es:'Nuevo',   en:'New',     ca:'Nou'     },
+  };
+
+  function renderBadge(item) {
+    if (!item.badge) return '';
+    const label = BADGES[item.badge] ? (BADGES[item.badge][lang] || item.badge) : item.badge;
+    return `<span class="badge badge-${item.badge}">${label}</span>`;
+  }
+
+  // ===== RENDER LANG SWITCHER =====
+  function renderLangSwitcher() {
+    const wrap = $('lang-switcher');
+    wrap.innerHTML = menuData.config.languages.map(l =>
+      `<button class="lang-btn${l === lang ? ' active' : ''}" data-l="${l}">${l.toUpperCase()}</button>`
+    ).join('');
+    wrap.querySelectorAll('.lang-btn').forEach(btn =>
+      btn.addEventListener('click', () => setLang(btn.dataset.l))
+    );
+  }
+
+  // ===== RENDER TABS =====
+  function renderTabs() {
+    $('tabs').innerHTML = menuData.categories.map(cat =>
+      `<button class="tab-btn" data-target="${cat.id}">${cat.icon} ${t(cat.name)}</button>`
+    ).join('');
+    $('tabs').querySelectorAll('.tab-btn').forEach(btn =>
+      btn.addEventListener('click', () => {
+        document.getElementById(btn.dataset.target)
+          ?.scrollIntoView({ behavior: 'smooth', block: 'start' });
+      })
+    );
+  }
+
+  // ===== SCROLL SPY =====
+  function setupScrollSpy() {
+    const sections = document.querySelectorAll('.category');
+    const tabBtns  = document.querySelectorAll('.tab-btn');
+    new IntersectionObserver(entries => {
+      entries.forEach(e => {
+        if (e.isIntersecting) {
+          const id = e.target.id;
+          tabBtns.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+          // scroll active tab into view
+          const active = $('tabs').querySelector('.tab-btn.active');
+          active?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+        }
+      });
+    }, { rootMargin: '-25% 0px -65% 0px' }).observe
+      && sections.forEach(s =>
+          new IntersectionObserver(entries => {
+            entries.forEach(e => {
+              if (e.isIntersecting) {
+                const id = e.target.id;
+                tabBtns.forEach(b => b.classList.toggle('active', b.dataset.target === id));
+                $('tabs').querySelector('.tab-btn.active')
+                  ?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
+              }
+            });
+          }, { rootMargin: '-25% 0px -65% 0px' }).observe(s)
+        );
+  }
+
+  // ===== RENDER CONTENT =====
+  function renderContent() {
+    $('content').innerHTML = menuData.categories.map(cat => `
+      <section class="category" id="${cat.id}">
+        <div class="category-header">
+          <span class="category-icon">${cat.icon}</span>
+          <span class="category-title">${t(cat.name)}</span>
+        </div>
+        ${cat.items.map(item => `
+          <div class="item">
+            <div class="item-info">
+              <div class="item-name">${t(item.name)}</div>
+              ${item.description ? `<div class="item-desc">${t(item.description)}</div>` : ''}
+              <div class="item-bottom">
+                ${item.price !== null ? `<span class="item-price">${item.price.toFixed(2)} €</span>` : ''}
+                ${renderBadge(item)}
+                ${item.allergens?.length ? `
+                  <div class="item-allergens">
+                    ${item.allergens.map(a => `<span class="allergen-tag">${allergenLabel(a)}</span>`).join('')}
+                  </div>` : ''}
+              </div>
+            </div>
+            ${item.image ? `<img class="item-img" src="${item.image}" alt="${t(item.name)}" loading="lazy">` : ''}
+          </div>
+        `).join('')}
+      </section>
+    `).join('');
+
+    setupScrollSpy();
+  }
+
+  // ===== RENDER ALL =====
+  function renderAll() {
+    document.title = t(menuData.restaurant.name);
+    $('restaurant-name').textContent  = t(menuData.restaurant.name);
+    $('restaurant-tagline').textContent = t(menuData.restaurant.tagline);
+    $('footer-text').textContent      = t(menuData.config.footerText);
+    renderLangSwitcher();
+    renderTabs();
+    renderContent();
+  }
+
+  // ===== INIT =====
+  renderAll();
+
+</script>
+</body>
+</html>
